@@ -4,6 +4,7 @@
 #include <fstream>
 #include <regex>
 #include <string>
+#include <unistd.h>
 
 namespace LinuxParser {
 // Paths
@@ -29,7 +30,7 @@ std::string Kernel();
 
 // CPU
 enum CPUStates {
-  kUser_ = 0,
+  kUser_,
   kNice_,
   kSystem_,
   kIdle_,
@@ -46,7 +47,17 @@ long ActiveJiffies();
 long ActiveJiffies(int pid);
 long IdleJiffies();
 
+//pid_cpu_data
+enum PIDCPUStates{
+  kUtime_,
+  kStime_,
+  kCutime_,
+  kCstime_,
+  kStarttime_
+};
+
 // Processes
+std::vector<int> CpuUtilizationPid(int pid);
 std::string Command(int pid);
 std::string Ram(int pid);
 std::string Uid(int pid);

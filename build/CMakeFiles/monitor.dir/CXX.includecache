@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/linux_parser.h
+fstream
+-
+regex
+-
+string
+-
+unistd.h
+-
+
+../include/process.h
+string
+-
+linux_parser.h
+../include/linux_parser.h
+
+/home/code/projects/system_monitor/SystemMonitor_zsert3/src/process.cpp
+unistd.h
+-
+cctype
+-
+sstream
+-
+string
+-
+vector
+-
+process.h
+/home/code/projects/system_monitor/SystemMonitor_zsert3/src/process.h
+
